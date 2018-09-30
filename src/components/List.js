@@ -31,7 +31,7 @@ class List extends React.Component {
         window.addEventListener("scroll", this.handleScroll)
 
         try {
-            let source = await fetch('https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=71bb3dc2fc4e572f5613d03922bf5d44&extras=owner_name%2C+views%2Curl_n&per_page=20&page=1&format=json&nojsoncallback=1')
+            let source = await fetch('https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=8808c69017e5203bff0d704643c98a50&extras=owner_name%2C+views%2Curl_n&per_page=20&page=1&format=json&nojsoncallback=1')
             let photos = (await source.json()).photos;
             console.log(photos);
             this.setState({
@@ -63,7 +63,7 @@ class List extends React.Component {
     async loadMore() {
         if (this.state.page > this.state.maxPage) return;
         try {
-            let source = await fetch(`https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=71bb3dc2fc4e572f5613d03922bf5d44&extras=owner_name%2C+views%2Curl_n&per_page=20&page=${this.state.page}&format=json&nojsoncallback=1`)
+            let source = await fetch(`https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=8808c69017e5203bff0d704643c98a50&extras=owner_name%2C+views%2Curl_n&per_page=20&page=${this.state.page}&format=json&nojsoncallback=1`)
             let photos = (await source.json()).photos;
             this.setState({
                 IMAGES: this.state.IMAGES.concat(photos.photo),
